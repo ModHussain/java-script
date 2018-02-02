@@ -1,0 +1,164 @@
+<html>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background-color:#eee;">
+<center><div class="container">
+<h3>Factorial of given Number</h3>
+<hr>
+ 
+ <div class="input-group  col-sm-6">
+      <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">Please enter a number</font></span>
+      <input id="num" type="text" class="form-control " placeholder="Please enter a number" title="Please enter a number"><span></span>
+   
+	</div>
+	<br>
+	<p id="output" style="font-size:18px;color:red;font-family:Lucida Calligraphy"></p>
+<button onclick="factor()" class="btn btn-default">Factorial</button>
+<hr>
+<h3>Prime or Not</h3>
+<hr>
+ 
+ <div class="input-group  col-sm-6">
+      <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">Please enter a number</font></span>
+      <input id="primin" type="text" class="form-control " placeholder="Please enter a number" title="Please enter a number"><span></span>
+   
+	</div>
+	<br>
+	<p id="primeout" style="font-size:18px;color:red;font-family:Lucida Calligraphy"></p>
+<button onclick="prime()" class="btn btn-default">Prime or Not</button>
+
+<hr>
+<h3>Armstrong or Not</h3>
+<hr>
+
+<div class="input-group  col-sm-6">
+      <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">Please enter a number</font></span>
+      <input id="armin" type="text" class="form-control " placeholder="Please enter a number" title="Please enter a number"><span></span>
+   
+	</div>
+	<br>
+	<p id="armout" style="font-size:18px;color:red;font-family:Lucida Calligraphy"></p>
+<button onclick="arms()" class="btn btn-default">Armstrong</button>
+
+<hr>
+<h3>palindrome or Not</h3>
+<hr>
+
+<div class="input-group  col-sm-6">
+      <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">Please enter a number</font></span>
+      <input id="palin" type="text" class="form-control " placeholder="Please enter a number" title="Please enter a number"><span></span>
+   
+	</div>
+	<br>
+	<p id="palout" style="font-size:18px;color:red;font-family:Lucida Calligraphy"></p>
+<button onclick="pal()" class="btn btn-default">palindrome</button>
+
+
+</div>
+<!--factorial of givennumber-->
+<script>
+function factor(){
+
+var i, no, fact;
+fact=1;
+no=Number(document.getElementById("num").value);
+for(i=1; i<=no; i++)  
+{
+fact= fact*i;
+}  
+document.getElementById("output").innerHTML= "The Factorial of given number "+no+" = "+fact;
+console.log("  working");
+}
+</script>
+<!--prime or not-->
+ 
+<script>
+function prime()
+{
+
+var i,m=0,fla=0,n;
+
+n=Number(document.getElementById("primin").value);
+
+m=n/2;      
+  if(n==0||n==1){  
+document.getElementById("primeout").innerHTML= n+" is not prime number";
+}else{  
+   for(i=2;i<=m;i++){      
+    if(n%i==0){      
+    document.getElementById("primeout").innerHTML= n+" is not prime number";
+	fla=1;      
+     break;      
+    }      
+   }     
+if(fla==0)  {
+	      
+    document.getElementById("primeout").innerHTML= n+" is  prime number";
+console.log("  working");
+
+	}
+}    
+}   
+
+</script>
+
+<!--Armstrong-->
+<script>
+function arms()
+{
+var arm=0,a,num;
+num=Number(document.getElementById("armin").value);
+
+temp=num;
+while(temp>0)
+{
+a=temp%10;
+temp=parseInt(temp/10); 
+arm=arm+a*a*a;
+}
+if(arm==num)
+{
+document.getElementById("armout").innerHTML=num+" is Armstrong number";
+console.log("  working");
+}
+else
+{
+document.getElementById("armout").innerHTML=num+" is Not Armstrong number";
+console.log(" not working");
+}
+}
+</script>
+<!--palindrome-->
+<script>
+function pal()
+{
+var r,sum=0,temp,n;
+
+n=Number(document.getElementById("palin").value);
+temp=n;    
+  while(n>0){    
+   r=n%10;    
+   sum=(sum*10)+r;    
+   n=parseInt(n/10);    
+  }    
+  if(temp==sum)  {
+	  document.getElementById("palout").innerHTML= temp+" is palindrome number";
+
+}
+else{
+document.getElementById("palout").innerHTML= temp+" is not palindrome number";
+
+}
+
+}
+</script>
+
+
+
+</body>
+</html>

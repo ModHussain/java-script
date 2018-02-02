@@ -1,0 +1,375 @@
+<!Doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+ 
+  
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" style="background-color:#f1f1f1;height:91px">
+  <div class="container">
+    <div class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"><img src="gs.png" class="img-responsive" style="width:80px"></a>
+    </div>
+	<div class="collapse navbar-collapse" id="myNavbar">
+
+    <form class="navbar-form navbar-right" >
+            <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+  </div></div>
+</nav>
+<center><p style="text-align:center;color:#555;font-family:arial;font-size:38px">Create Your Google Account</p></center>
+<div class="container">
+<div class="row">
+<div class="col-sm-3"></div>
+
+<div class="col-sm-6"><div class="well">
+
+<form id="gmail" onsubmit="return validate()" novalidate>
+  <div class="row">
+	<div class="col-sm-5">
+    
+  <div class="form-group">
+    <label for="name"> Name</label>
+	<input type="text" class="form-control" id="fname" onfocus="fn()" onfocusout="fcl()"></div>
+  </div>
+  <div class="col-sm-5">
+  
+  <div class="form-group">
+  <label for="name">&nbsp;</label>
+	
+    <input type="text" class="form-control" id="lname" onfocus="ln()" onfocusout="lcl()"></div>
+  </div></div>
+  <span id="name_error" style="color:#f00;display:none">You can't leave this empty.</span>
+  
+  <div class="form-group">
+    <label for="email">Choose your username</label>
+    <input type="email" class="form-control" id="email" onfocus="em()" onfocusout="ecl()" data-toggle="popover"  data-content="
+  You will get an email with a link to confirm that this address is yours  " data-placement="left">
+	<span class="atgmail" style="position:absolute;top:147px;right:60px;color:#999">@gmail.com</span>
+  <span id="email_info" style="color:#15c">I prefer to use my current email address</span><br>
+  <span id="email_error" style="color:#f00;display:none">You can't leave this empty.</span>
+  
+  </div>
+  
+  <div class="form-group">
+    <label for="pwd">Create a password</label>
+    <input type="password" class="form-control" id="pwd" data-toggle="popover"  onfocus="pw()" onfocusout="pcl()" title="Password Strength" data-content="
+  Use at least 8 characters. Do not use a password from another site, or something too obvious like your pet’s name. " data-placement="left">
+  <span id="pwd_error" style="color:#f00;display:none">You can't leave this empty.</span>
+  
+  </div>
+  
+  <div class="form-group">
+    <label for="cpwd">Confirm your password</label>
+    <input type="password" class="form-control" id="cpwd" onfocus="cpw()" onfocusout="cpcl()">
+  <span id="cpwd_error" style="color:#f00;display:none">You can't leave this empty.</span>
+  
+  </div>
+  <div class="row">
+	<div class="col-sm-4">
+  <div class="form-group">
+      <label for="sel1">Birthday</label>
+      <select class="form-control" id="month" placeholder="Month" onfocus="mo()">
+        <option>Jan</option>
+        <option>Feb</option>
+        <option>Mar</option>
+        <option>Apr</option>
+        <option>Jun</option>
+        <option>Jul</option>
+        <option>Aug</option>
+        <option>Sep</option>
+        <option>Oct</option>
+        <option>Nov</option>
+        <option>Dec</option>
+      </select>
+    
+	</div></div>
+	<div class="col-sm-4">
+	<div class="form-group">
+  <label for="name">&nbsp;</label>
+	
+    <input type="text" class="form-control" id="day" onfocus="da()" onfocusout="dcl()" placeholder="Day"></div>
+	</div>
+  <div class="col-sm-4">
+  <div class="form-group">
+  <label for="name">&nbsp;</label>
+	
+    <input type="text" class="form-control" id="year" onfocus="yea()" onfocusout="ycl()" placeholder="Year"></div>
+	</div>
+  </div>
+  <span id="bday_error" style="color:#f00;display:none">You can't leave this empty.</span>
+  <div class="form-group">
+      <label for="sel1">Gender</label>
+      <select class="form-control" id="gen">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    
+	</div>
+	<div class="form-group">
+    <label for="mob">Mobile Phone</label>
+    <input type="text" class="form-control" id="mob" onfocus="mobi()" onfocusout="mocl()">
+	</div>
+	<div class="form-group">
+    <label for="email">Your Current email address</label>
+    <input type="email" class="form-control" id="cemail" onfocus="cem()" onfocusout="cecl()" data-toggle="popover"  data-content="
+  You will get an email with a link to confirm that this address is yours  " data-placement="left">
+  <span id="cemail_error" style="color:#f00;display:none">You can't leave this empty.</span>
+  
+  </div>
+  <div class="form-group">
+      <label for="sel1">Location</label>
+      <select class="form-control" id="loc">
+        <option>India</option>
+        <option>USA</option>
+        <option>Other</option>
+      </select>
+    
+	</div>
+  <br><button type="submit" class="btn btn-info">Next Step</button>
+</form>
+
+
+
+</div></div>
+
+<div class="col-sm-3"></div>
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+
+
+<script>
+function validate(){
+var fName=document.getElementById("gmail").fname;
+var lName=document.getElementById("gmail").lname;
+var Email=document.getElementById("gmail").email;
+var Pwd=document.getElementById("gmail").pwd;
+var Cpwd=document.getElementById("gmail").cpwd;
+var Mon=document.getElementById("gmail").month;
+var Day=document.getElementById("gmail").day;
+var Year=document.getElementById("gmail").year;
+var Gen=document.getElementById("gmail").gen;
+var Mob=document.getElementById("gmail").mob;
+var Cemail=document.getElementById("gmail").cemail;
+var Loc=document.getElementById("gmail").loc;
+
+if(fName.value==''){
+if(lname.value==''){
+if(Email.value==''){
+if(Pwd.value==''){
+	document.getElementById("name_error").style.display="block";
+	document.getElementById("lname").style.borderColor = "#E34234";	
+	document.getElementById("fname").style.borderColor = "#E34234";
+	document.getElementById("email_error").style.display="block";
+	document.getElementById("pwd_error").style.display="block";
+	document.getElementById("cpwd_error").style.display="block";
+	document.getElementById("bday_error").style.display="block";
+	document.getElementById("cemail_error").style.display="block";
+	document.getElementById("email").style.borderColor = "#E34234";
+	document.getElementById("pwd").style.borderColor = "#E34234";
+	document.getElementById("cpwd").style.borderColor = "#E34234";
+	document.getElementById("month").style.borderColor = "#E34234";
+	document.getElementById("day").style.borderColor = "#E34234";
+	document.getElementById("year").style.borderColor = "#E34234";
+	document.getElementById("cemail").style.borderColor = "#E34234";
+	document.getElementById("mob").style.borderColor = "#E34234";
+
+		return false;
+	}}}}
+	
+return true;
+	} 
+
+</script>
+
+
+<script>
+function fn()
+{
+	document.getElementById("fname").style.borderColor = "#5bc0de";
+	console.log("working");
+}
+
+function ln()
+{
+	document.getElementById("lname").style.borderColor = "#5bc0de";
+	document.getElementById("name_error").style.display="none";
+	console.log("working");
+}
+
+function em()
+{
+	document.getElementById("email").style.borderColor = "#5bc0de";
+	document.getElementById("email_error").style.display="none";
+	console.log("working");
+}
+
+function pw()
+{
+	document.getElementById("pwd").style.borderColor = "#5bc0de";
+	document.getElementById("pwd_error").style.display="none";
+	console.log("working");
+}
+
+function cpw()
+{
+	document.getElementById("cpwd").style.borderColor = "#5bc0de";
+	document.getElementById("cpwd_error").style.display="none";
+	console.log("working");
+}
+
+function mo()
+{
+	document.getElementById("month").style.borderColor = "#5bc0de";
+	console.log("working");
+}
+function da()
+{
+	document.getElementById("day").style.borderColor = "#5bc0de";
+	console.log("working");
+}
+function yea()
+{
+	document.getElementById("year").style.borderColor = "#5bc0de";
+	console.log("working");
+	document.getElementById("bday_error").style.display="none";
+}
+function mobi()
+{
+	document.getElementById("mob").style.borderColor = "#5bc0de";
+	console.log("working");
+}
+function cem()
+{
+	document.getElementById("cemail").style.borderColor = "#5bc0de";
+	console.log("working");
+	document.getElementById("cemail_error").style.display="none";
+}
+
+function fcl()
+{
+if(fname.value==""){
+document.getElementById("name_error").style.display="block";	
+	document.getElementById("fname").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("fname").style.borderColor = "#5bc0de";
+	console.log(" fname working");
+	}
+}
+function lcl()
+{
+if(lname.value==""){
+document.getElementById("name_error").style.display="block";	
+	document.getElementById("lname").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("lname").style.borderColor = "#5bc0de";
+	console.log(" lname working");
+	}
+}
+function ecl()
+{
+if(email.value==""){
+document.getElementById("email_error").style.display="block";	
+	document.getElementById("email").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("email").style.borderColor = "#5bc0de";
+	console.log(" email working");
+	}
+}
+
+function pcl()
+{
+if(pwd.value==""){
+document.getElementById("pwd_error").style.display="block";	
+	document.getElementById("pwd").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("pwd").style.borderColor = "#5bc0de";
+	console.log(" pwd working");
+	}
+}
+function cpcl()
+{
+if(cpwd.value==""){
+document.getElementById("cpwd_error").style.display="block";	
+	document.getElementById("cpwd").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("cpwd").style.borderColor = "#5bc0de";
+	console.log(" cpwd working");
+	}
+}
+function dcl()
+{
+if(day.value==""){
+document.getElementById("bday_error").style.display="block";	
+	document.getElementById("day").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("day").style.borderColor = "#5bc0de";
+	console.log(" month working");
+	}
+}
+function ycl()
+{
+if(year.value==""){
+document.getElementById("bday_error").style.display="block";	
+	document.getElementById("year").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("year").style.borderColor = "#5bc0de";
+	console.log(" month working");
+	}
+}
+
+function mocl()
+{
+if(mob.value==""){	
+	document.getElementById("mob").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("mob").style.borderColor = "#5bc0de";
+	console.log(" moblie working");
+	}
+}
+
+function cecl()
+{
+if(cemail.value==""){
+document.getElementById("cemail_error").style.display="block";	
+	document.getElementById("cemail").style.borderColor = "#E34234";
+	}else
+	{
+	document.getElementById("cemail").style.borderColor = "#5bc0de";
+	console.log(" cemail working");
+	}
+}
+
+</script>
+
+</body>
+
+
+</html>
