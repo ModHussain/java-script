@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>Ajax Example from Server</h2>
+<button type="button" onclick="loadDoc()">GET DATA</button>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://www.w3schools.com/angular/customers.php", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

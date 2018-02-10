@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  
+  </style>
+</head>
+<body>
+<div class="">
+	<input type="text" id="customer_age" />
+	<input type="text" id="customer_name" />
+	<input type="button" value="Add" onclick="add()"/>
+</div>
+<div id="table_section" class="col-md-6"></div>
+<script>
+var data=[];
+function add(){
+		
+/*var data=[
+			{
+			age:23,
+			name:"ravi"
+			},
+			{
+			age:24,
+			name:"rakesh"
+			},
+			{
+			age:25,
+			name:"raju"
+			}
+		];*/
+		var get_age=document.getElementById("customer_age");
+		var get_name=document.getElementById("customer_name");
+		var customer= {
+						age:get_age.value,
+						name:get_name.value
+					  };
+		data.push(customer);
+
+		console.log(data)
+		console.log(data.length)
+		get_age.value='';
+		get_name.value='';
+		var list="<table class='table'>"
+		for(i=0;i<data.length;i++){
+		 list=list+"<tr><td>"+data[i].age+"</td><td>"+data[i].name+"</td><td><input type='button' onclick='Delete(this)' value='Delete'/></td></tr>"
+		}
+		list+="</table>";
+		document.getElementById("table_section").innerHTML=list;
+}
+
+
+
+</script>
+
+</body>
+</html>

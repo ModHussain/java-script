@@ -1,0 +1,217 @@
+<!Doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  #uname_error,#pwd_error{
+  color:rgb(255,0,0);
+  display:none;
+  }
+  .clear{
+  clear:both;
+  }
+  
+  
+  </style>
+</head>
+<body>
+
+<div class="container">
+<h2 class="text">Register here</h2>
+	<form  id="form_section" onsubmit="return validate()" novalidate>
+	
+		<div class="form-group col-md-6 ">
+			<input type="text"  name="uname" class="form-control input-md"  placeholder="username" onfocus="userfun()" onkeydown="userfun1()" required/>
+		</div>
+		<div class="col-md-6">
+			<span id="uname_error">Fill this username</span>
+		</div>
+		<div class="clear"></div>
+		<div class="form-group col-md-6">
+			<input type="text"  name="pwd" class="form-control input-md"   placeholder="password" onfocus="passfun()" onkeydown="passfun1()" required/>
+		</div>
+		<div class="col-md-6">
+			<span id="pwd_error">Fill this Password</span>
+		</div><br>
+		<div class="clear"></div>
+		<div class="text-">
+		<input type="submit"  class="btn btn-info" value="submit"/>
+		</div>
+	</form>
+</div>
+
+<br>
+<br>
+
+<div class="row">
+<div class="container">
+<div class="container">
+<form name="frm">
+    <div class="input-group">
+
+         <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">User Name:&nbsp&nbsp&nbsp</font></span>
+         <input id="user" type="email" class="form-control input-lg"  name="user" placeholder="Enter UserName" onblur="checkValidate();" onkeydown="myFunction()" onkeypress="return onlyAlpha(event,this);" size=80 maxlength=10>
+
+	</div>
+	<center><p id="demo"><font color="red"></font></p></center><br>
+	
+	<div class="input-group">
+      <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">Password:&nbsp&nbsp&nbsp&nbsp&nbsp</font></span>
+      <input id="pwd" type="password" class="form-control input-lg" name="Password" placeholder="Enter Password" title="Enter password" onfocus="myFun()" onkeydown="myFu5()" onmousedown="t1()">
+    </div><center><p id="pw"><font color="red"></font></p></center><br>
+	<div class="input-group">
+      <span class="input-group-addon"><font size=4 face="Lucida Calligraphy">Confirm password:</font></span>
+      <input id="pword" type="password" class="form-control input-lg" name="Password" placeholder="Confirm Password" title="Enter password" onfocus="myFun5()">
+    </div><center><p id="cpw"><font color="red"></font></p><p id="h1"></p></center>
+</form>
+<br>
+ </div>
+  <div class="container">
+
+  <center><button type="button" class="btn btn-success btn-lg margin-left" onclick="valu()"> Submit</button>
+ 
+</div>
+
+
+
+</div>
+</div>
+
+
+</div>
+
+
+
+<script>
+function validate(){
+var userName=document.getElementById("form_section").uname;
+//alert(userName)
+var passWord=document.getElementById("form_section").pwd;
+//alert(passWord)
+	if(userName.value==''){
+		//alert("Please enter the Username");
+		document.getElementById("uname_error").style.display="block";
+		return false;
+	}
+	//if(userName.value.length<8){
+		//alert("enter username with minimum 8 characters");
+		//return false;
+	//}
+	if(passWord.value==''){
+		//a lert("Please enter the password");
+		document.getElementById("pwd_error").style.display="block";
+		return false;
+	}
+	return true;
+	
+}
+
+
+function userfun() {
+     document.getElementById("uname_error").innerHTML = "please enter username";
+	
+ }
+ function userfun1() {
+     document.getElementById("uname_error").innerHTML = "";
+
+}
+ function passfun1() {
+     document.getElementById("pwd_error").innerHTML = "";
+
+}
+function passfun() {
+     document.getElementById("pwd_error").innerHTML = "please enter password";
+	
+ } 
+
+
+</script>
+
+<!--new script-->
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "please enter username";
+	
+}
+
+
+function myFu5() {
+    document.getElementById("pw").innerHTML = "Password should contain more than 10 character";
+}
+
+function myFu6() {
+    document.getElementById("cpw").innerHTML = "Confirm Password should be match ";
+}
+function myFun() {
+    document.getElementById("demo").innerHTML = "";
+
+}
+function myFun5() {
+    document.getElementById("pw").innerHTML = "";
+
+}
+function myFun6() {
+    document.getElementById("cpw").innerHTML = "";
+
+}
+</script>
+
+
+<script>
+function t1() {
+    var a, vo;
+    a = Number(document.getElementById("pwd").value);
+     if (isNaN(a)) {
+        vo = "Strong";
+    } else {
+        vo = (a < 100000000) ? "Too weak" : "Strong";
+    }
+    document.getElementById("pw").innerHTML = vo;
+}
+</script>
+<script>
+
+ function valu() {
+        var pass1 = document.getElementById("pwd").value;
+        var pass2 = document.getElementById("pword").value;
+        if (pass1 != pass2) {
+            //alert("Passwords Do not match");
+            document.getElementById("pwd").style.borderColor = "#E34234";
+            document.getElementById("pword").style.borderColor = "#E34234";
+        }
+        else {
+    //        document.getElementById("h1").innerHTML="Register Successfull Now you can Signin!"
+        }
+    }
+
+</script>
+
+<script>
+
+
+function checkValidate(){
+   var nid = document.getElementById("user");
+   if(nid.value.length < 10){
+			document.getElementById("demou").innerHTML = "Please Enter 10 Characters.";
+		}
+		else{
+			document.getElementById("demou").innerHTML = "";
+		}
+}
+function onlyAlpha(event,t)
+{ 
+	var regex = new RegExp("^[a-zA-Z ]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+}
+
+</script>
+</body>
+</html>

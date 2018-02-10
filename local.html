@@ -1,0 +1,117 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<center><h2>LocalStorage Task</h2></center>
+<hr>
+<center>
+<div class="row">
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+ <form action="">
+    <div class="form-group ">
+    <label for="EmployeeId">Employee Id</label>
+    
+        <input id="empid" type="text"  class="c1 form-control"/> 
+</div>
+<div class="form-group ">
+   <label for="Name">  Name:</label>
+    
+        <input id="name" type="text" class="c1 form-control" /> 
+		</div>
+		<div class="form-group ">
+		<label for="age">Age: </label>
+        <input id="age" type="text" class="c1 form-control"/></div>
+		<div class="form-group">
+		<label for="email">Email:</label>
+        <input id="email" type="email" class="c1 form-control" />
+		</div>
+		<div class="form-group">
+		<label for="Salary">Salary</label>
+        <input id="sal" type="text" class="c1 form-control"/>
+		</div>
+		
+    <center><input id="btnsave" type="button" value="Save" class="btn btn-default" /> 
+	<input id="btnclearstorage" type="button" value="Clear Storage"  class="btn btn-default"/>
+</div>	
+<div id="dvcontainer">
+</div> 
+<div class="col-sm-1"></div>
+</div>
+
+
+</center>
+<script>
+
+(function () { 
+var Person = { 
+Id: 0, 
+Name: "", 
+Age:0, 
+Email: "", 
+Salary:0 
+};
+
+var applogic = {
+saveitem: function () { 
+    var lscount = localStorage.length; 
+    var inputs = document.getElementsByClassName("c1"); 
+            Person.Id = inputs[0].value; 
+            Person.Name = inputs[1].value; 
+            Person.Age = inputs[2].value; 
+            Person.Email = inputs[3].value; 
+            Person.Salary= inputs[4].value; 
+            
+            localStorage.setItem("Person_" + lscount, JSON.stringify(Person)); 
+            location.reload(); 
+},
+loaddata: function () { 
+    var datacount = localStorage.length; 
+    if (datacount > 0) 
+    { 
+        var render = "<table border='2'>"; 
+        render += "<tr><th>EmployeeId</th><th>Name</th><th>Age</th><th>Email</th>” + “<th>Salary</th></tr>"; 
+        for (i = 0; i < datacount; i++) { 
+            var key = localStorage.key(i);  
+            var person = localStorage.getItem(key);  
+            var data = JSON.parse(person);  
+            
+            render += "<tr><td>" + data.Id + "</td><td>" + data.Name + " </td>"; 
+            render += "<td>" + data.Age + "</td>"; 
+            render += "<td>" + data.Email + "</td>"; 
+            render += "<td>" + data.Salary + "</td></tr>"; 
+            
+        } 
+        render+="</table>"; 
+        dvcontainer.innerHTML = render; 
+    } 
+},
+clearstorage: function () { 
+    var storagecount = localStorage.length;  
+    if (storagecount > 0) 
+    { 
+        for (i = 0; i < storagecount; i++) { 
+            localStorage.clear(); 
+        } 
+    } 
+    window.location.reload(); 
+}
+};
+var btnsave = document.getElementById('btnsave'); 
+btnsave.addEventListener('click', applogic.saveitem, false); 
+var btnclearstorage = document.getElementById('btnclearstorage'); 
+btnclearstorage.addEventListener('click', applogic.clearstorage, false); 
+
+window.onload = function () { 
+applogic.loaddata(); 
+}; 
+})(); 
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!Doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  #uname_error,#pwd_error{
+  color:rgb(255,0,0);
+  display:none;
+  }
+  .clear{
+  clear:both;
+  }
+  
+  
+  </style>
+</head>
+<body onload="firstLoad()">
+
+<div class="col-md-6">
+<h2 class="text-center">Register here</h2>
+	<form action="result.html"  onkeyup="return validate()" id="form_section"  novalidate>
+	
+		<div class="form-group col-md-6 ">
+			<input type="text"  name="uname" class="form-control input-md" placeholder="username"   required/>
+		</div>
+		<div class="col-md-6">
+			<span id="uname_error">Fill this username</span>
+		</div>
+		<div class="clear"></div>
+		<div class="form-group col-md-6">
+			<input type="text"  name="pwd" class="form-control input-md" placeholder="password" required/>
+		</div>
+		<div class="col-md-6">
+			<span id="pwd_error">Fill this Password</span>
+		</div><br>
+		<div class="clear"></div>
+		<div class="text-center">
+		<input type="submit" id="sub_btn" class="btn btn-info" value="submit"/>
+		</div>
+	</form>
+</div>
+<script>
+function firstLoad(){
+//alert("yes")
+document.getElementById("sub_btn").disabled=true;
+
+}
+function validate(){
+var userName=document.getElementById("form_section").uname;
+//alert(userName)
+var passWord=document.getElementById("form_section").pwd;
+//alert(passWord)
+	if(userName.value==''){
+		//alert("Please enter the Username");
+		//document.getElementById("sub_btn").disabled=true;
+		document.getElementById("uname_error").style.display="block";
+		return false;
+	}
+	if(userName.value.length<8){
+		//alert("enter username with minimum 8 characters");
+		//document.getElementById("sub_btn").disabled=true;
+		document.getElementById("uname_error").style.display="block";
+		return false;
+	}
+	if(passWord.value==''){
+		//alert("Please enter the password");
+		//document.getElementById("sub_btn").disabled=true;
+		document.getElementById("uname_error").style.display="none";
+		document.getElementById("pwd_error").style.display="block";
+		return false;
+	}
+	if(passWord.value.length<8){
+		//alert("enter username with minimum 8 characters");
+		//document.getElementById("sub_btn").disabled=true;
+		document.getElementById("pwd_error").style.display="block";
+		
+		return false;
+	}
+	else{
+	document.getElementById("uname_error").style.display="none";
+	document.getElementById("pwd_error").style.display="none";
+	document.getElementById("sub_btn").disabled=false;
+	return true;
+	}
+	
+}
+</script>
+</body>
+</html>

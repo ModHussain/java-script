@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  input{
+      border: 1px solid grey;
+	}
+  </style>
+</head>
+<body>
+<div class="">
+	
+	<input type="button" value="Show" class="btn btn-default" onclick="showData()"/>
+</div>
+<div id="table_section" class="col-md-6"></div>
+<script>
+
+function showData(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     var data = this.responseText;
+	 console.log(data);
+	 data=JSON.parse(data).records;
+	  console.log(data);
+	 var list="<table class='table'>"
+		for(i=0;i<data.length;i++){
+		 list=list+"<tr><td>"+data[i].Name+"</td><td>"+data[i].City+"</td><td>"+data[i].Country+"</td><td><input type='button' onclick='Delete(this)' class='btn btn-danger' value='Delete'/></td></tr>"
+		}
+		list+="</table>";
+		document.getElementById("table_section").innerHTML=list;
+    }
+  };
+  xhttp.open("GET", "https://www.w3schools.com/angular/customers.php", true);
+  xhttp.send();
+}
+		
+		
+		
+		/**/
+
+
+
+
+</script>
+
+</body>
+</html>

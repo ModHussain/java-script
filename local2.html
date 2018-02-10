@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+ input{
+      border: 1px solid grey;
+	}
+  </style>
+</head>
+<body onload="get()">
+<center><h2>LocalStorage Task</h2></center>
+
+<div class="col-md-4"></div>
+<div class="col-md-5">
+<form>
+<div class="form-group ">
+    <label for="">First Name</label>
+    
+        <input id="first_name" type="text"  class=" form-control"/> 
+</div>
+<div class="form-group ">
+   <label for=""> Last Name:</label>
+    
+        <input id="last_name" type="text" class=" form-control" /> 
+	
+	</div>
+	<input id="btnclear" type="button" onclick="store()" value="Add" class="btn btn-default"/>
+<input id="btnclear" type="button" onclick="get()" value="Dispaly" class="btn btn-default"/>
+</form>
+</div>
+	
+	
+</div>
+<h1 id="name_section"></h1>
+<script>
+/*
+function store(){
+ var firstName=document.getElementById("first_name").value;
+ var lastName=document.getElementById("last_name").value;
+ //console.log(firstName+" and "+ lastName);
+ localStorage.setItem("first",firstName);
+ localStorage.setItem("last",lastName);
+ 
+}
+function get(){
+var fst_name=localStorage.getItem("first");
+var lst_name=localStorage.getItem("last")
+document.getElementById("name_section").innerHTML=fst_name+" "+lst_name;
+//alert(fst_name)
+}
+*/
+
+function store(){
+ var firstName=document.getElementById("first_name").value;
+ var lastName=document.getElementById("last_name").value;
+ //console.log(firstName+" and "+ lastName);
+ sessionStorage.setItem("first",firstName);
+ sessionStorage.setItem("last",lastName);
+ localStorage.setItem("first",firstName);
+ localStorage.setItem("last",lastName);
+}
+function get(){
+var fst_name=sessionStorage.getItem("first");
+var lst_name=sessionStorage.getItem("last");
+var fst_name=localStorage.getItem("first");
+var lst_name=localStorage.getItem("last")
+
+document.getElementById("first_name").value=fst_name;
+document.getElementById("last_name").value=lst_name;
+console.log("working");
+
+//alert(fst_name)
+}
+</script>
+</body>
+</html>

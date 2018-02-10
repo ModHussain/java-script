@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  
+  </style>
+</head>
+<body>
+<input type="button" onclick="findResult()" value="Click"/>
+<script>
+/*function findResult(){
+
+var n=prompt("enter the number");
+var l=n.length;
+var p=n;
+var r=0;
+while(n>0){
+a=n%10;
+r=r+Math.pow(a,l);
+n=parseInt(n/10);
+}
+if(p==r){
+alert("yeah! m an armstrong number");
+}
+else{
+alert("Whoop! m not an armstrong number");
+}
+}*/
+function findResult(){
+var n=prompt("enter the number");
+var s=n;
+var l=n.length;
+var r=0;
+for(i=0;i<l;i++){
+a=n[i];
+r=r+Math.pow(a,l);
+//console.log(r)
+}
+if(s==r){
+console.log("yes! This is an armstrong number");
+}
+else{
+console.log("no! This is not an armstrong number");
+}
+
+}
+
+</script>
+</body>
+</html>

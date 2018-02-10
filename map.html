@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 300px;
+        width: 50%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+
+    <input type="text" name="Plcaes" placeholder="Select Place" id="searchTextField" style="width:500px">
+    <h1 id="place_name"></h1>
+    <div id="map"></div>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr7SVJuuKNGX0MqFPvgFa3t9hMyvdgmg0&libraries=places">
+    </script>
+    <script>
+
+      // autocomeplete
+      var input = document.getElementById('searchTextField');
+  
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+          var place = autocomplete.getPlace();
+          /*console.log("place values", place)
+          console.log("lat long values", place.geometry.location.lat(), place.geometry.location.lng())*/
+          document.getElementById("place_name").innerHTML = place.formatted_address
+          initMap(place)
+      });
+      // ends autocomeplete
+
+      function initMap(place) {
+        console.log("place", place)
+        if(place){
+          var uluru = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
+        }else{
+          var uluru = {lat: 27.3850, lng: 78.4867};
+        }
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru,
+		  mapTypeId:google.maps.MapTypeId.HYBRID
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+		  animation: google.maps.Animation.BOUNCE
+		  
+        });
+      }
+      initMap()
+    </script>
+    
+  </body>
+</html>

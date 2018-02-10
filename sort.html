@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+ 
+  </style>
+</head>
+<body>
+<input type="button" value="Sort it" onclick="myFunc()"/>
+<script>
+function myFunc(){
+		var arr=[9,2,3,1,8,7];
+			for(j=0;j<arr.length;j++){
+				for(i=0;i<arr.length;i++){
+				var temp;
+				if(arr[i]>arr[i+1]){
+				temp=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=temp;
+				}
+			 }
+			//console.log(arr);	
+		}
+			document.write(arr);
+}
+</script>
+
+</body>
+
+</html>
+1
