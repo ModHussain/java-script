@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="animate.css">
+
+  </head>
+<style>
+#up{
+position: fixed;
+right:30px;
+bottom: 20px;
+display:none;
+}
+body{
+height:5500px;
+}	
+</style>     
+<body>
+
+
+<div class="well well-sm"><h1 class="text-center te" >ANIMATION</h1></div>
+the length is : <p id="one"> </p>
+
+<a href="" target="Top" id="up"><i class="glyphicon glyphicon-upload " id="s" style="font-size:35px;color:red"></i></a>
+
+
+		<div class="row">
+<div class="form-group col-md-6 ">
+			<input type="text"  name="uname" id="uname" class="form-control " onkeyup="fill()" />
+		</div>
+		<div class="col-md-6">
+			<span id="user"></span>
+		</div></div>	<br>
+
+		<h2>ADDRESS</h2>
+		<label>SELECT YOUR STATE</label><select id="slct1" name="slct1" class="form-control" onchange="populate(this.id,'slct2')">
+  <option value=""></option>
+  <option value="tel">Telegana</option>
+  <option value="ap">Andhra Pradesh</option>
+  
+</select>
+
+<label>SELECT YOUR DISTRICT</label>
+<select id="slct2" name="slct2" class="form-control"></select>
+		<script>
+function my()
+{
+
+$(".te").fadeOut(2000);
+$(".te").fadeIn(2000);
+}
+setInterval(my,400);
+</script>
+
+<script>
+
+function fill()
+{
+var a=document.getElementById("uname").value;
+
+document.getElementById("user").innerHTML=a;
+console.log(a);
+
+}
+
+
+</script>
+<script>
+function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	console.log(s1,s2)
+	s2.innerHTML = "";
+	if(s1.value == "tel"){
+		var optionArray = ["|","hyderabad|HYDERBAD","warangal|WARANGAL","kh	ammam|KHAMMAM"];
+	} else if(s1.value == "ap"){
+		var optionArray = ["|","Amaravati|AMARAVATI","vijayawada|VIJAYAWADA","guntur|GUNTUR"];
+	} 
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		console.log("pair",pair)
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}	 
+}
+</script>
+
+<script>
+
+window.onscroll = function(){showbut()};
+
+function showbut() {
+	$("#one").html(document.body.scrollTop);
+	
+	console.log("working");
+    if ( document.body.scrollTop > 50) {
+	$("#up").show();
+	$("#up").addClass('animated flip');
+    console.log("great");
+	
+	} else {
+	$("#up").fadeOut();	
+    console.log("less");
+    
+	}
+	
+}
+
+
+</script>
+</body></html>
